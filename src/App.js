@@ -6,7 +6,7 @@ function App() {
 
 	const getWeatherData = async (location) => {
 		try {
-			const url = `https://api.openweathermap.org/data/2.5/find?q=${location}&appid=${apiKey}`;
+			const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`;
 			const response = await fetch(url, { mode: 'cors' });
 			const data = await response.json();
 			console.log(data);
