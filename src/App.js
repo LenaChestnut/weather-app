@@ -1,29 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Form from './components/Form';
 
 function App() {
-	//get location
-	const userLocation = prompt('Please enter your location');
-	const key = '322163d169cf09cdd079a313e33c1a3a';
-	//get weather for that location
-	const url = `https://api.openweathermap.org/data/2.5/weather?q=${userLocation}&appid=${key}`;
+	const [apiKey] = useState('322163d169cf09cdd079a313e33c1a3a');
 
-	const getWeatherData = async (url) => {
+	const getWeatherData = async (location) => {
 		try {
+			const url = `https://api.openweathermap.org/data/2.5/find?q=${location}&appid=${apiKey}`;
 			const response = await fetch(url, { mode: 'cors' });
-			const promise = await response.json();
-			console.log(promise);
+			const data = await response.json();
+			console.log(data);
 		} catch (err) {
 			console.log(err);
 		}
 	};
 
-	getWeatherData(url);
-
 	return (
 		<div className="App">
 			<h1>Weather App</h1>
-			<Form />
+			<Form getWeatherData={getWeatherData} apiKey={apiKey} />
 		</div>
 	);
 }
