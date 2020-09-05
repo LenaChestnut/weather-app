@@ -142,3 +142,12 @@ input:checked + .toggle:before {
 		transform: rotate(360deg);
 	}
 }
+
+.error-screen {
+	color: #3f51b5;
+	padding: 1rem;
+}
+
+.error-screen h1 {
+	margin: 0;
+}

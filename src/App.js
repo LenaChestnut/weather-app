@@ -3,6 +3,7 @@ import Form from './components/Form';
 import './App.css';
 import WeatherCard from './components/WeatherCard';
 import LoadingScreen from './components/LoadingScreen';
+import ErrorMessage from './components/ErrorMessage';
 
 function App() {
 	const [apiKey] = useState('322163d169cf09cdd079a313e33c1a3a');
@@ -21,22 +22,20 @@ function App() {
 				console.log(data);
 			} else {
 				setErrorThrown(true);
+				setWeatherData(null);
 			}
 		} catch (err) {
 			throw new Error(err);
 		} finally {
-			setErrorThrown(false);
+			// setErrorThrown(false);
 			setIsLoading(false);
 		}
 	};
 
 	return (
 		<div className="App">
-			<Form
-				getWeatherData={getWeatherData}
-				apiKey={apiKey}
-				errorThrown={errorThrown}
-			/>
+			<Form getWeatherData={getWeatherData} apiKey={apiKey} />
+			{errorThrown && !weatherData ? <ErrorMessage /> : null}
 			{isLoading ? <LoadingScreen /> : null}
 			{weatherData && !isLoading ? (
 				<WeatherCard data={weatherData} />
