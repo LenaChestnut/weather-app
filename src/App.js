@@ -34,7 +34,6 @@ function App() {
 				errorThrown={errorThrown}
 			/>
 			{weatherData ? <WeatherCard data={weatherData} /> : null}
-			{/* <WeatherCard /> */}
 		</div>
 	);
 }

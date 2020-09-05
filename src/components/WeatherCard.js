@@ -13,9 +13,9 @@ function WeatherCard(props) {
 
 	const convertTemperature = () => {
 		if (tempSystem === 'C') {
-			setTempDisplayed(tempK - 273.15);
+			setTempDisplayed(Math.round(tempK - 273.15));
 		} else {
-			setTempDisplayed((tempK - 273.15) * 1.8 + 32);
+			setTempDisplayed(Math.round((tempK - 273.15) * 1.8 + 32));
 		}
 	};
 
@@ -30,18 +30,6 @@ function WeatherCard(props) {
 	};
 
 	return (
-		// <div className="weather-card">
-		// 	<h2 className="location">
-		// 		{name}, {country}
-		// 	</h2>
-		// 	<div>
-		// 		<p className="weather">
-		// 			{weather.charAt(0).toUpperCase() + weather.slice(1)}
-		// 		</p>
-		// 		<p className="temp">{temp}</p>
-		// 	</div>
-		// 	<button>Temp</button>
-		// </div>
 		<div className="weather-card">
 			<h2 className="location">
 				{name}, {country}
