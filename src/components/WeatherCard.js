@@ -2,13 +2,12 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
 function WeatherCard(props) {
-	// const {
-	// 	name,
-	// 	sys: { country },
-	// 	main: { temp },
-	// 	weather: [{ description: weather }],
-	// } = props.data;
-	const [tempK] = useState(290.15);
+	const {
+		name,
+		sys: { country },
+		main: { temp: tempK },
+		weather: [{ description: weather }],
+	} = props.data;
 	const [tempDisplayed, setTempDisplayed] = useState('');
 	const [tempSystem, setTempSystem] = useState('C');
 
@@ -44,9 +43,13 @@ function WeatherCard(props) {
 		// 	<button>Temp</button>
 		// </div>
 		<div className="weather-card">
-			<h2 className="location">Kazan, RU</h2>
+			<h2 className="location">
+				{name}, {country}
+			</h2>
 			<div>
-				<p className="weather">Clear sky</p>
+				<p className="weather">
+					{weather.charAt(0).toUpperCase() + weather.slice(1)}
+				</p>
 				<p className="temp">
 					{tempDisplayed}
 					&#176;

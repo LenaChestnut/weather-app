@@ -33,8 +33,8 @@ function App() {
 				apiKey={apiKey}
 				errorThrown={errorThrown}
 			/>
-			{/* {weatherData ? <WeatherCard data={weatherData} /> : null} */}
-			<WeatherCard />
+			{weatherData ? <WeatherCard data={weatherData} /> : null}
+			{/* <WeatherCard /> */}
 		</div>
 	);
 }
