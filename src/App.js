@@ -2,13 +2,16 @@ import React, { useState } from 'react';
 import Form from './components/Form';
 import './App.css';
 import WeatherCard from './components/WeatherCard';
+import LoadingScreen from './components/LoadingScreen';
 
 function App() {
 	const [apiKey] = useState('322163d169cf09cdd079a313e33c1a3a');
 	const [weatherData, setWeatherData] = useState(null);
 	const [errorThrown, setErrorThrown] = useState(false);
+	const [isLoading, setIsLoading] = useState(false);
 
 	const getWeatherData = async (location) => {
+		setIsLoading(true);
 		try {
 			const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`;
 			const response = await fetch(url, { mode: 'cors' });
@@ -23,6 +26,7 @@ function App() {
 			throw new Error(err);
 		} finally {
 			setErrorThrown(false);
+			setIsLoading(false);
 		}
 	};
 
@@ -33,7 +37,10 @@ function App() {
 				apiKey={apiKey}
 				errorThrown={errorThrown}
 			/>
-			{weatherData ? <WeatherCard data={weatherData} /> : null}
+			{isLoading ? <LoadingScreen /> : null}
+			{weatherData && !isLoading ? (
+				<WeatherCard data={weatherData} />
+			) : null}
 		</div>
 	);
 }
