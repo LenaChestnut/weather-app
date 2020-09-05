@@ -105,7 +105,7 @@ form {
 	align-items: center;
 	color: #3f51b5;
 	font-weight: 700;
-	content: 'C';
+	content: '\00B0 C';
 	height: 26px;
 	width: 26px;
 	left: 4px;
@@ -118,7 +118,7 @@ form {
 }
 
 input:checked + .toggle:before {
-	content: 'F';
+	content: '\00B0 F';
 	-webkit-transform: translateX(26px);
 	-ms-transform: translateX(26px);
 	transform: translateX(26px);
