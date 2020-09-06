@@ -1,6 +1,8 @@
 body,
 #root {
 	height: 100vh;
+	background: #f4e8c1;
+	background-size: cover;
 }
 
 .App {
@@ -152,10 +154,13 @@ input:checked + .toggle:before {
 	margin: 0;
 }
 
-div.MuiFilledInput-root,
+div.MuiFilledInput-root {
+	background-color: rgba(255, 255, 255, 0.4);
+}
+
 div.MuiFilledInput-root:hover,
 div.MuiFilledInput-root:focus,
 div.MuiFilledInput-root:active,
 div.MuiFilledInput-root.Mui-focused {
-	background-color: rgba(255, 255, 255, 0.7);
+	background-color: rgba(255, 255, 255, 0.8);
 }

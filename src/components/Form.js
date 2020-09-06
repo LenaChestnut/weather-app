@@ -9,14 +9,6 @@ const useStyles = makeStyles({
 	formInput: {
 		width: '100%',
 	},
-	// field: {
-	// 	// background: 'rgba(255, 255, 255, 0.8)',
-	// 	backgroundColor: 'white',
-	// 	borderRadius: '4px',
-	// 	'&:hover, &:focus': {
-	// 		backgroundColor: 'white',
-	// 	},
-	// },
 });
 
 function Form(props) {
