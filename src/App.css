@@ -70,7 +70,7 @@ form {
 .weather-card h2,
 .weather-card p {
 	color: white;
-	text-shadow: black 0px 1px 8px;
+	text-shadow: rgba(0, 0, 0, 0.8) 0px 1px 8px;
 }
 
 .weather-card p {
