@@ -46,8 +46,6 @@ form {
 }
 
 .weather-card {
-	color: white;
-	text-shadow: rgba(0, 0, 0, 0.7) 0px 1px 5px;
 	padding: 0 1rem 2rem;
 	box-sizing: border-box;
 	height: 80%;
@@ -67,6 +65,12 @@ form {
 	text-transform: uppercase;
 	font-weight: 400;
 	margin: 0;
+}
+
+.weather-card h2,
+.weather-card p {
+	color: white;
+	text-shadow: black 0px 1px 8px;
 }
 
 .weather-card p {
