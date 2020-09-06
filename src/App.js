@@ -9,15 +9,13 @@ function App() {
 	const [apiKey] = useState('322163d169cf09cdd079a313e33c1a3a');
 	const [weatherData, setWeatherData] = useState(null);
 	const [errorThrown, setErrorThrown] = useState(false);
-	const [background] = useState(document.getElementById('root'));
 	const [backgroundUrl, setBackgroundUrl] = useState(null);
 	const [isLoading, setIsLoading] = useState(false);
 
-	const getBackgroundImage = async (weather) => {
-		const keywords = weather.split(' ').join(',');
+	const getBackgroundImage = async (keyword) => {
 		try {
 			const response = await fetch(
-				`https://source.unsplash.com/featured/?${keywords}`,
+				`https://source.unsplash.com/featured/?sky,${keyword}`,
 				{ mode: 'cors' }
 			);
 			if (response.ok) {
@@ -39,13 +37,13 @@ function App() {
 			if (response.ok) {
 				const data = await response.json();
 				setWeatherData(data);
-				const bg = await getBackgroundImage(
-					data.weather[0].description
-				);
+				console.log(data);
+				const bg = await getBackgroundImage(data.weather[0].main);
 				setBackgroundUrl(bg);
 			} else {
 				setErrorThrown(true);
 				setWeatherData(null);
+				setBackgroundUrl(null);
 			}
 		} catch (err) {
 			throw new Error(err);
@@ -55,6 +53,7 @@ function App() {
 	};
 
 	useEffect(() => {
+		const background = document.getElementById('root');
 		background.style.backgroundImage = `url(${backgroundUrl})`;
 	}, [backgroundUrl]);
 
