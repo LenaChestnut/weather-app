@@ -2,4 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Weather App
 
-## API
+## Used API
+
+-   [OpenWeatherApp](https://openweathermap.org/)
+-   [Unsplash Source](https://source.unsplash.com/)
