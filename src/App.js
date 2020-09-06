@@ -29,6 +29,12 @@ function App() {
 		}
 	};
 
+	const handleError = () => {
+		setErrorThrown(true);
+		setWeatherData(null);
+		setBackgroundUrl(null);
+	};
+
 	const getWeatherData = async (location) => {
 		setIsLoading(true);
 		try {
@@ -37,13 +43,10 @@ function App() {
 			if (response.ok) {
 				const data = await response.json();
 				setWeatherData(data);
-				console.log(data);
 				const bg = await getBackgroundImage(data.weather[0].main);
 				setBackgroundUrl(bg);
 			} else {
-				setErrorThrown(true);
-				setWeatherData(null);
-				setBackgroundUrl(null);
+				handleError();
 			}
 		} catch (err) {
 			throw new Error(err);
