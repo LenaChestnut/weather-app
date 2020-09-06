@@ -9,7 +9,26 @@ function App() {
 	const [apiKey] = useState('322163d169cf09cdd079a313e33c1a3a');
 	const [weatherData, setWeatherData] = useState(null);
 	const [errorThrown, setErrorThrown] = useState(false);
+	const [backgroundUrl, setBackgroundUrl] = useState(null);
 	const [isLoading, setIsLoading] = useState(false);
+
+	const getBackgroundImage = async (keywords) => {
+		// const separatedKeywords = keywords.split('')
+		try {
+			const response = await fetch(
+				`https://source.unsplash.com/featured/?${keywords}`,
+				{ mode: 'cors' }
+			);
+			if (response.ok) {
+				const bgUrl = response.url;
+				return bgUrl;
+			} else {
+				return '#f4e8c1';
+			}
+		} catch (err) {
+			console.log(err);
+		}
+	};
 
 	const getWeatherData = async (location) => {
 		setIsLoading(true);
@@ -19,7 +38,9 @@ function App() {
 			if (response.ok) {
 				const data = await response.json();
 				setWeatherData(data);
-				console.log(data);
+				const bg = await getBackgroundImage('nature');
+				console.log(bg);
+				// console.log(data);
 			} else {
 				setErrorThrown(true);
 				setWeatherData(null);
@@ -27,10 +48,12 @@ function App() {
 		} catch (err) {
 			throw new Error(err);
 		} finally {
-			// setErrorThrown(false);
 			setIsLoading(false);
 		}
 	};
+
+	const root = document.getElementById('root');
+	root.style.backgroundColor = '#f4e8c1';
 
 	return (
 		<div className="App">

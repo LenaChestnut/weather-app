@@ -151,3 +151,11 @@ input:checked + .toggle:before {
 .error-screen h1 {
 	margin: 0;
 }
+
+div.MuiFilledInput-root,
+div.MuiFilledInput-root:hover,
+div.MuiFilledInput-root:focus,
+div.MuiFilledInput-root:active,
+div.MuiFilledInput-root.Mui-focused {
+	background-color: rgba(255, 255, 255, 0.7);
+}
