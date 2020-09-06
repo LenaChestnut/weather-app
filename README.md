@@ -2,6 +2,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 # Weather App
 
+[Live demo](https://lenachestnut.github.io/weather-app/)
+
 ## Used API
 
 -   [OpenWeatherApp](https://openweathermap.org/)
