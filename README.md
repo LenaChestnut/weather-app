@@ -21,6 +21,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ![image](https://user-images.githubusercontent.com/29921988/94367559-2817e780-00e8-11eb-8045-0015e24c27a2.png)
 
+## Challenges
+
+### API key
+
+API keys should be used in backend to ensure security. Since this is a practice project using a free API key, it will do. It can be hidden by using environmental variables but it would still be visible in the console.
+
 ## Tools and assets
 
 -   HTML
